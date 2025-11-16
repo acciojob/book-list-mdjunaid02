@@ -1,10 +1,10 @@
-document.getElementById("submit").addEventListener("click",function(e){
-	e.presendDefault();
-	const title=getElementById("title").value;
-	const author=getElmentById("author").value;
-	const isbn=getElementById("isbn").vaule;
+document.getElementById("submit").addEventListener("click", function(e){
+	e.preventDefault();
+	const title=document.getElementById("title").value;
+	const author=document.getElementById("author").value;
+	const isbn=document.getElementById("isbn").value;
 
-	if(!author || !title || !isbn) return;
+	if(!author || !title || !isbn)return;
 
 	const tableBody=document.getElementById("book-list");
 	const row=document.createElement("tr");
@@ -18,9 +18,7 @@ document.getElementById("submit").addEventListener("click",function(e){
 	row.appendChild(authorCell);
 
 	const isbnCell=document.createElement("td");
-	isbnCell.textContent=isbn;
+	authorCell.textContent=isbn;
 	row.appendChild(isbnCell);
-
-	tableBody.appendChild(row);
-});
+})
 
