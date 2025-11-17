@@ -1,42 +1,45 @@
-document.addEventListener('DOMContentLoaded',()=>{
-	documemnt.GelElementById("submit").addEventListener("click", function(e){
-		e.preventDefault();
-		const title=document.getElementById("title").value;
-		const author=document.getElementById("author").value;
-		const isbn=document.getElementById("title").value;
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('submit').addEventListener('click', function (e) {
+    e.preventDefault();
 
-		if(!title || !author || !isbn)return;
 
-		const tableBody=document.getElementById("book-list");
-		const row=document.createElement("tr");
+    const title = document.getElementById('title').value;
+    const author = document.getElementById('author').value;
+    const isbn = document.getElementById('isbn').value;
 
-		const titleCell=document.createElement("td");
-		titleCell.textContent=title;
-		row.appendChild(titleCell);
+    if (!title || !author || !isbn) return;
 
-		const authorCell=document.createElement("td");
-		authorCell.textContent=author;
-		row.appendChild(authorCell);
+    const tableBody = document.getElementById('book-list');
+    const row = document.createElement('tr');
 
-		const isbnCell=document.createElement("td");
-		isbnCell.textContent=isbn;
-		row.appendChild(isbnCell);
+    const titleCell = document.createElement('td');
+    titleCell.textContent = title;
+    row.appendChild(titleCell);
 
-		const deleteCell=document.createElement("td");
-		const delBtn=document.createElement("button");
-		delBtn.textContent="X"
-		delBtn.style.backgroundcolor("red");
-		delBtn.style.color("white");
-		delBtn.onclick=function(){
-			row.remove;
-		};
-		deleteCell.appendChild(delBtn);
-		row.appendChild(deleteCell);
+    const authorCell = document.createElement('td');
+    authorCell.textContent = author;
+    row.appendChild(authorCell);
 
-		tableBody.appendChild(row);
+    const isbnCell = document.createElement('td');
+    isbnCell.textContent = isbn;
+    row.appendChild(isbnCell);
 
-		const title=document.getElementById("title").value="";
-		const author=document.getElementById("author").value="";
-		const isbn=document.getElementById("title").value="";
-	});
+   
+    const deleteCell = document.createElement('td');
+    const delBtn = document.createElement('button');
+    delBtn.textContent = 'X';
+    delBtn.className = 'delete';
+    delBtn.onclick = function () {
+      row.remove();
+    };
+    deleteCell.appendChild(delBtn);
+    row.appendChild(deleteCell);
+
+    tableBody.appendChild(row);
+
+    
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('isbn').value = '';
+  });
 });
